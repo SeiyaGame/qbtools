@@ -1,0 +1,15 @@
+# local secrets
+config.toml
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# ide
+.idea/
+
+# logs
+*.log

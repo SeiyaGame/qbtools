@@ -1,0 +1,13 @@
+# Copy this file to config.toml and fill in your values.
+# config.toml is gitignored (it holds your WebUI password).
+#
+# These are the connection settings for qBittorrent's Web API. Enable it in
+# qBittorrent under: Tools > Options > Web UI.
+
+[qbittorrent]
+host = "localhost"
+port = 8080
+username = "admin"
+password = "CHANGE_ME"
+# https = false        # set true if the WebUI is served over HTTPS
+# verify_cert = true   # set false to accept a self-signed WebUI certificate

@@ -1,0 +1,3 @@
+qbittorrent-api>=2024.1.58
+typer
+rich
