@@ -15,7 +15,7 @@ from .client import QbitClient
 from .errors import ApiError
 from .fields import TorrentField
 from .models import Change, TorrentInfo
-from .operations import TrackerOperation
+from .operations import FieldOperation
 
 
 @dataclass(frozen=True)
@@ -53,7 +53,7 @@ class Engine:
     def __init__(self, client: QbitClient):
         self.client = client
 
-    def plan(self, operation: TrackerOperation, field: TorrentField, torrents: list[TorrentInfo]) -> Plan:
+    def plan(self, operation: FieldOperation, field: TorrentField, torrents: list[TorrentInfo]) -> Plan:
         changes: list[Change] = []
         for torrent in torrents:
             changes.extend(c for c in operation.changes(field, torrent) if not c.is_noop)

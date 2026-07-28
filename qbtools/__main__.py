@@ -1,4 +1,4 @@
-"""Enables `python -m qbt_trackers`."""
+"""Enables `python -m qbtools`."""
 
 from .cli import app
 

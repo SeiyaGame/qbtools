@@ -1,4 +1,4 @@
-# qbt-trackers
+# qbtools
 
 Bulk-edit qBittorrent torrents over the Web API (trackers, tags, category, save
 path, name) on selections filtered by category, tag, state, name or tracker.
@@ -60,8 +60,8 @@ For `--category`/`--tag`, pass `''` to match uncategorised / untagged; omit to m
 ## Layout
 
 ```
-qbt.py                 # launcher (also: python -m qbt_trackers)
-qbt_trackers/
+qbt.py                 # launcher (also: python -m qbtools)
+qbtools/
   cli.py               # Typer commands (thin: shared filters + write pipeline)
   config.py            # config.toml -> Settings/QbitConfig
   models.py            # TorrentInfo/Tracker/Change, enums, TorrentFilter
@@ -73,5 +73,5 @@ qbt_trackers/
   fields/              # trackers / tags / category / savepath / name (auto-discovered)
 ```
 
-- Add an operation: drop a `TrackerOperation` subclass in `operations/`; it becomes a verb under every field whose actions include it.
+- Add an operation: drop a `FieldOperation` subclass in `operations/`; it becomes a verb under every field whose actions include it.
 - Add a field: drop a `TorrentField` subclass in `fields/` (its `values()`, `apply()` and supported `actions`); it becomes the `qbt.py <field>` command group.

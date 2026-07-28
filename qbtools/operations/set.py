@@ -6,14 +6,14 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from ..models import Action, Change, TorrentInfo
-from .base import TrackerOperation
+from .base import FieldOperation
 
 if TYPE_CHECKING:
     from ..fields import TorrentField
 
 
 @dataclass
-class SetOperation(TrackerOperation):
+class SetOperation(FieldOperation):
     """Set the field to `value`, skipping torrents that already hold it."""
 
     name = "set"

@@ -5,20 +5,20 @@ only has to exist to get its place in the registry (and in `qbt.py operations`).
 """
 
 from ..registry import import_submodules
-from .base import REGISTRY, TrackerOperation
+from .base import REGISTRY, FieldOperation
 
-# Import every module so each TrackerOperation subclass registers on definition.
+# Import every module so each FieldOperation subclass registers on definition.
 import_submodules(__name__, __path__)
 
 
 def operation_names() -> list[str]:
     """Every registered operation name, in registration order."""
-    return TrackerOperation.names()
+    return FieldOperation.names()
 
 
-def operation_for(name: str) -> type[TrackerOperation]:
+def operation_for(name: str) -> type[FieldOperation]:
     """The operation class handling a name. Raises on an unknown one."""
-    return TrackerOperation.by_name(name)
+    return FieldOperation.by_name(name)
 
 
-__all__ = ["REGISTRY", "TrackerOperation", "operation_for", "operation_names"]
+__all__ = ["REGISTRY", "FieldOperation", "operation_for", "operation_names"]

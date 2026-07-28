@@ -1,13 +1,13 @@
 [project]
-name = "qbt-trackers"
+name = "qbtools"
 version = "0.1.0"
-description = "Bulk-edit qBittorrent tracker URLs over the Web API, filtered by category / tag / state."
+description = "Bulk-edit qBittorrent torrents (trackers, tags, category, save path, name) over the Web API, filtered by category / tag / state."
 license = "MIT"
 requires-python = ">=3.12"
 dependencies = ["qbittorrent-api>=2024.1.58", "typer", "rich"]
 
 [project.scripts]
-qbt-trackers = "qbt_trackers.cli:app"
+qbtools = "qbtools.cli:app"
 
 [tool.ruff]
 line-length = 150

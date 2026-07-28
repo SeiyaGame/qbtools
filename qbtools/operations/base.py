@@ -2,7 +2,7 @@
 
 An operation is the *how*; a `TorrentField` is the *what* (see `fields/`). The same
 operation drives any field: `replace` rewrites a value whether it's a tracker URL,
-a tag or a category. Adding one = drop a module here with a `TrackerOperation`
+a tag or a category. Adding one = drop a module here with a `FieldOperation`
 subclass; it self-registers and shows up in `qbt.py operations`.
 
 An operation is a *pure planner*: given a field and one `TorrentInfo` it returns
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     from ..fields import TorrentField
 
 
-class TrackerOperation(Registry, ABC):
+class FieldOperation(Registry, ABC):
     """One bulk edit, generic over the field it acts on."""
 
     _registry_label = "Operation"
@@ -44,4 +44,4 @@ class TrackerOperation(Registry, ABC):
 
 
 #: The registered operations, in definition order (`from .base import REGISTRY`).
-REGISTRY: list[type[TrackerOperation]] = TrackerOperation.REGISTRY
+REGISTRY: list[type[FieldOperation]] = FieldOperation.REGISTRY

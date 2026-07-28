@@ -7,14 +7,14 @@ from dataclasses import dataclass, field as dc_field
 from typing import TYPE_CHECKING
 
 from ..models import Action, Change, TorrentInfo
-from .base import TrackerOperation
+from .base import FieldOperation
 
 if TYPE_CHECKING:
     from ..fields import TorrentField
 
 
 @dataclass
-class ReplaceOperation(TrackerOperation):
+class ReplaceOperation(FieldOperation):
     """Replace `match` with `to` in every value of the field it occurs in.
 
     Plain substring by default (`old.host` -> `new.host`); with `regex=True`,

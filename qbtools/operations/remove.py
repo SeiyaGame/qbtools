@@ -7,14 +7,14 @@ from dataclasses import dataclass, field as dc_field
 from typing import TYPE_CHECKING
 
 from ..models import Action, Change, TorrentInfo
-from .base import TrackerOperation
+from .base import FieldOperation
 
 if TYPE_CHECKING:
     from ..fields import TorrentField
 
 
 @dataclass
-class RemoveOperation(TrackerOperation):
+class RemoveOperation(FieldOperation):
     """Remove every value that matches `match` (substring, or regex)."""
 
     name = "remove"

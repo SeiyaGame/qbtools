@@ -33,7 +33,7 @@ from .errors import TrackerToolError
 from .fields import REGISTRY as FIELDS
 from .fields import TorrentField
 from .models import Action, TorrentFilter, TorrentInfo, TorrentState
-from .operations import TrackerOperation
+from .operations import FieldOperation
 from .operations.add import AddOperation
 from .operations.remove import RemoveOperation
 from .operations.replace import ReplaceOperation
@@ -104,7 +104,7 @@ class Session:
     def torrents(self, filter: TorrentFilter) -> list[TorrentInfo]:
         return self.client.torrents(filter)
 
-    def run(self, operation: TrackerOperation, field: TorrentField, filter: TorrentFilter, *, apply: bool) -> None:
+    def run(self, operation: FieldOperation, field: TorrentField, filter: TorrentFilter, *, apply: bool) -> None:
         torrents = self.torrents(filter)
         if not torrents:
             self.console.print("[yellow]No torrents matched the filters.[/yellow]")
